@@ -1,0 +1,218 @@
+<style>
+  :root {
+    --accent: #0479a8;
+    --offwhite: #f9f9f9;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    background: #f7f7f7;
+  }
+
+  main {
+    max-width: 1536px;
+    margin: 8rem auto;
+    display: grid;
+    grid-template-columns: 0.8fr repeat(3, 0.8fr) 1fr;
+    gap: 2rem;
+  }
+
+  .th {
+    font-weight: 500;
+  }
+
+  .rule {
+    height: 1px;
+    background: #ddd;
+    grid-column: 1/-1;
+  }
+
+  .showcase {
+    padding: 2rem;
+    outline: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .on-gray {
+    background: #f7f7f7;
+  }
+
+  .on-white {
+    background: white;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  ul {
+    margin: 0.5rem 0;
+    padding-left: 1.2rem;
+    line-height: 1.5;
+  }
+
+  li + li {
+    margin-top: 0.25rem;
+  }
+
+  button {
+    font-size: 1rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+
+    display: flex;
+    align-items: center;
+    appearance: none;
+    -webkit-appearance: none;
+    text-decoration: none;
+    border-style: none;
+    background: none;
+    border-radius: 0.2rem;
+    transition: background-color 0.2s, border-color 0.2s;
+    cursor: pointer;
+
+    background-color: var(--accent);
+    color: var(--offwhite);
+  }
+
+  button.current:focus,
+  button.current.focused {
+    outline: none;
+    box-shadow: 0 0 0 0.25rem rgb(4 121 168 / 30%);
+  }
+
+  button.usds:focus,
+  button.usds.focused {
+    outline: 0.2rem solid #2491ff;
+    outline-offset: 0.2rem;
+  }
+
+  button.usds-alt:focus,
+  button.usds-alt.focused {
+    outline: 0.2rem solid var(--accent);
+    outline-offset: 0.2rem;
+  }
+
+  button.material:focus,
+  button.material.focused {
+    outline: none;
+    background-color: #0479a8;
+    color: #e1e1e1;
+  }
+</style>
+
+<main>
+  <!-- HEADERS -->
+  <span class="th"></span>
+  <span class="th">Un-focused</span>
+  <span class="th">Focused (on gray)</span>
+  <span class="th">Focused (on white)</span>
+  <span class="th">Notes</span>
+
+  <div class="rule"></div>
+
+  <h2>Current state</h2>
+  <div>
+    <div class="showcase">
+      <button class="current">Click me</button>
+    </div>
+  </div>
+  <div>
+    <div class="showcase on-gray">
+      <button class="current focused">Click me</button>
+    </div>
+  </div>
+  <div>
+    <div class="showcase on-white">
+      <button class="current focused">Click me</button>
+    </div>
+  </div>
+  <ul>
+    <li>
+      Feedback has been that these styles lack sufficient visual contrast
+      between the focused and un-focused states.
+    </li>
+  </ul>
+
+  <h2>(A) USDS outline</h2>
+  <div>
+    <div class="showcase">
+      <button class="usds">Click me</button>
+    </div>
+  </div>
+  <div>
+    <div class="showcase on-gray">
+      <button class="usds focused">Click me</button>
+    </div>
+  </div>
+  <div>
+    <div class="showcase on-white">
+      <button class="usds focused">Click me</button>
+    </div>
+  </div>
+  <ul>
+    <li>Uses a new shade of blue cribbed from the USDS design system.</li>
+    <li>Unclear if having a different color for the outline is good or bad.</li>
+    <li>
+      Provides a very prominent focus state that is used by a large-scale
+      organization (US government) with a track-record of a11y focus.
+    </li>
+  </ul>
+
+  <h2>(B) USDS outline with UW blue</h2>
+  <div>
+    <div class="showcase">
+      <button class="usds-alt">Click me</button>
+    </div>
+  </div>
+  <div>
+    <div class="showcase on-gray">
+      <button class="usds-alt focused">Click me</button>
+    </div>
+  </div>
+  <div>
+    <div class="showcase on-white">
+      <button class="usds-alt focused">Click me</button>
+    </div>
+  </div>
+  <ul>
+    <li>Has similar benefits as (A)</li>
+    <li>Uses the same shade of blue as the button</li>
+  </ul>
+
+  <h2>(C) Material design</h2>
+  <div>
+    <div class="showcase">
+      <button class="material">Click me</button>
+    </div>
+  </div>
+  <div>
+    <div class="showcase on-gray">
+      <button class="material focused">Click me</button>
+    </div>
+  </div>
+  <div>
+    <div class="showcase on-white">
+      <button class="material focused">Click me</button>
+    </div>
+  </div>
+  <ul>
+    <li>Included for completeness.</li>
+    <li>
+      These styles have already had issues in CS&amp;E for not providing enough
+      visual contrast.
+    </li>
+  </ul>
+</main>
